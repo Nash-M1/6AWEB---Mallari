@@ -1,0 +1,36 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
+<h1> {{ message }}</h1>
+<img [src] = 'imageUrl' [height] = 'h' [width] ='w' [alt] = 'altText' />
+<p [style.color]="textColor">This text is blue</p>
+<p [class.highlighted] = 'isHighlighted'>This text is highlighted</p>
+<input [(ngModel)]="yourName" placeholder="Enter your name">
+<p>Hello, {{ yourName }} !</p>
+<div class="hello">
+  <button (click)='increment()'>Increment</button>
+  <button (click)='decrement()'>Decrement</button>
+</div>
+<p>Count: {{ count }}</p>
+
+<h1> {{ studentName }}</h1>
+<section>
+  <h2>Property Binding</h2>
+  <img [src] = 'imageUrl1' width='200' />
+  <br /> <br />
+  <button [disabled] ='isDisabled'>Submit</button>
+</section>
+
+<h2> Class Binding</h2>
+<p [class.passing]='isPassing' [class.failing]='!isPassing'>
+  Student Result : {{ isPassing ? 'Passed' : 'Failed' }}
+</p>
+
+<h2>Style Binding</h2>
+<div
+  [style.background]="boxColor"
+  [style.width]="boxSize"
+  [style.height]="boxSize"
+  class="box">
+</div>
