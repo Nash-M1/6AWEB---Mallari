@@ -1,0 +1,38 @@
+<div class="hero" style="background-image: url('assets/images/hero-partners.jpg');">
+  <div class="hero-content">
+    <h1>Our<br>Partners</h1>
+    <p>We collaborate with leading technology companies and organizations to bring you the best conference experience possible.</p>
+
+    <div class="hero-meta">
+      <div>CORPORATE PARTNERSHIPS</div>
+      <div>GLOBAL COLLABORATION</div>
+      <div>SPONSORSHIP OPPORTUNITIES</div>
+    </div>
+
+    <button class="btn">Become a Sponsor</button>
+  </div>
+</div>
+
+<div class="content-section">
+  <h2>Corporate<br>Partners</h2>
+  <p>Below are our valued corporate partners who make these conferences possible through their generous support and commitment to advancing academic research.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Company</th>
+        <th>Trademark</th>
+        <th>Sponsorship</th>
+        <th>Website</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let partner of partners">
+        <td>{{ partner.company }}</td>
+        <td><img [src]="partner.trademark" [alt]="partner.company"></td>
+        <td>{{ partner.sponsorship }}</td>
+        <td><a [href]="partner.website" target="_blank">Visit</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

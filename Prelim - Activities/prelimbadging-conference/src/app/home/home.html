@@ -1,0 +1,30 @@
+<div class="hero" style="background-image: url('assets/images/hero-home.jpg');">
+  <div class="hero-content">
+    <h1>Research<br>Conferences</h1>
+    <p>Join our online events this 2026! Connect with academics, researchers, and industry leaders from around the globe.</p>
+
+    <div class="hero-meta">
+      <div>ONLINE EVENTS</div>
+      <div>YEAR 2026</div>
+      <div>EARLY-BIRD REGISTRATION</div>
+    </div>
+
+    <button class="btn">Register Now</button>
+  </div>
+</div>
+
+<div class="content-section">
+  <h2>Global<br>Conferences</h2>
+  <p>Join our Research Conferences around the Globe! Explore cutting-edge research, network with leading academics, and contribute to the advancement of knowledge across multiple disciplines.</p>
+
+  <div class="cards-grid">
+    <div class="card" *ngFor="let conf of conferences">
+      <img [src]="conf.image" [alt]="conf.name">
+      <div class="card-content">
+        <h3>{{ conf.name }}</h3>
+        <p>{{ conf.description }}</p>
+        <strong>{{ conf.category }}</strong>
+      </div>
+    </div>
+  </div>
+</div>
