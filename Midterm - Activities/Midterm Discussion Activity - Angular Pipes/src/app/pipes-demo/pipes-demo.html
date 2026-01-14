@@ -1,0 +1,123 @@
+<!-- Navigation -->
+<nav class="nav-bar">
+  <a href="#home">[ HOME ]</a>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="hero-content">
+    <h1>ANGULAR PIPES<br>DEMO</h1>
+    <p>Explore Angular's built-in pipes with live examples</p>
+    <p>CREATED BY: KENNETH NASH MALLARI</p>
+  </div>
+</section>
+
+<!-- Pipes Demo Grid -->
+<div class="pipes-container">
+  <div class="pipes-grid">
+
+    <!-- Date Pipes Card -->
+    <div class="pipe-card">
+      <div class="pipe-card-content">
+        <h3>DATE PIPES</h3>
+        <p class="pipe-card-category">/ FORMATTING AND DISPLAY</p>
+        <p>Today: {{ presentDate | date }}</p>
+        <p>Short: {{ presentDate | date:'shortDate' }}</p>
+        <p>Full: {{ presentDate | date:'fullDate' }}</p>
+        <p>Custom: {{ presentDate | date:'M/dd/yyyy' }}</p>
+      </div>
+    </div>
+
+    <!-- Async Pipes Card -->
+    <div class="pipe-card">
+      <div class="pipe-card-content">
+        <h3>ASYNC PIPES</h3>
+        <p class="pipe-card-category">/ OBSERVABLE HANDLING</p>
+        <p>Live Time: {{ time$ | async | date:'mediumTime' }}</p>
+        <p>Updates automatically from Observable streams without manual subscription management</p>
+      </div>
+    </div>
+
+    <!-- Slice Pipes Card -->
+    <div class="pipe-card">
+      <div class="pipe-card-content">
+        <h3>SLICE PIPES</h3>
+        <p class="pipe-card-category">/ ARRAY MANIPULATION</p>
+        <h5>Start index: {{Fruits | slice:2}}</h5>
+        <h5>Start and end: {{Fruits | slice:1:4}}</h5>
+        <h5>Negative: {{Fruits | slice:-2}}</h5>
+        <h5>Range: {{Fruits | slice:-4:-2}}</h5>
+      </div>
+    </div>
+
+    <!-- Currency Pipes Card -->
+    <div class="pipe-card">
+      <div class="pipe-card-content">
+        <h3>CURRENCY PIPES</h3>
+        <p class="pipe-card-category">/ MONETARY FORMATTING</p>
+        <p>Default: {{ price | currency }}</p>
+        <p>USD: {{ price | currency:'USD':'symbol' }}</p>
+        <p>INR: {{ price | currency:'INR' }}</p>
+        <p>EUR: {{ price | currency:'EUR' }}</p>
+      </div>
+    </div>
+
+    <!-- Decimal Pipes Card -->
+    <div class="pipe-card">
+      <div class="pipe-card-content">
+        <h3>DECIMAL PIPES</h3>
+        <p class="pipe-card-category">/ NUMBER FORMATTING</p>
+        <p>Basic: {{ decimalNum1 | number }}</p>
+        <p>Fixed: {{ decimalNum1 | number:'3.1' }}</p>
+        <p>Range: {{ decimalNum2 | number:'2.1-4' }}</p>
+        <p>Default: {{ decimalNum2 | number }}</p>
+      </div>
+    </div>
+
+    <!-- Percent Pipes Card -->
+    <div class="pipe-card">
+      <div class="pipe-card-content">
+        <h3>PERCENT PIPES</h3>
+        <p class="pipe-card-category">/ PERCENTAGE DISPLAY</p>
+        <p>Basic: {{ decimalNum1 | percent }}</p>
+        <p>Formatted: {{ decimalNum2 | percent:'1.2-2' }}</p>
+        <p>{{ 0.259 | percent }}</p>
+        <p>{{ 1.3495 | percent:'2.0-0' }}</p>
+      </div>
+    </div>
+
+    <!-- Uppercase Pipes Card -->
+    <div class="pipe-card">
+      <div class="pipe-card-content">
+        <h3>UPPERCASE PIPES</h3>
+        <p class="pipe-card-category">/ TEXT TRANSFORMATION</p>
+        <p>Original: {{ sampleText }}</p>
+        <p>Uppercase: {{ sampleText | uppercase }}</p>
+        <p>Example: {{ 'angular framework' | uppercase }}</p>
+      </div>
+    </div>
+
+    <!-- Lowercase Pipes Card -->
+    <div class="pipe-card">
+      <div class="pipe-card-content">
+        <h3>LOWERCASE PIPES</h3>
+        <p class="pipe-card-category">/ TEXT TRANSFORMATION</p>
+        <p>Original: {{ 'HELLO ANGULAR' }}</p>
+        <p>Lowercase: {{ 'HELLO ANGULAR' | lowercase }}</p>
+        <p>Example: {{ 'TYPESCRIPT' | lowercase }}</p>
+      </div>
+    </div>
+
+    <!-- TitleCase Pipes Card -->
+    <div class="pipe-card">
+      <div class="pipe-card-content">
+        <h3>TITLECASE PIPES</h3>
+        <p class="pipe-card-category">/ TEXT TRANSFORMATION</p>
+        <p>Original: {{ sampleText }}</p>
+        <p>TitleCased: {{ sampleText | titlecase }}</p>
+        <p>Example: {{ 'learn angular pipes' | titlecase }}</p>
+      </div>
+    </div>
+
+  </div>
+</div>
