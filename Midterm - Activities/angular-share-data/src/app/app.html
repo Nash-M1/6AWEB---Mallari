@@ -1,0 +1,37 @@
+<div class="container">
+  <h2>Employees List</h2>
+  <div class="cards-grid">
+    <div class="card" *ngFor="let employee of employees">
+      <div class="avatar" *ngIf="!employee.photo">
+        {{ getInitials(employee.firstname, employee.lastname) }}
+      </div>
+      <img *ngIf="employee.photo"
+           [src]="'assets/images/' + employee.photo"
+           [alt]="employee.firstname"
+           class="avatar">
+      <div class="card-name">{{ employee.firstname | uppercase }} {{ employee.lastname | uppercase }}</div>
+      <div class="card-detail">{{ employee.email | lowercase }}</div>
+      <div class="card-detail" *ngIf="employee.hireDate">Hired: {{ employee.hireDate | date:'MMM d, y' }}</div>
+    </div>
+  </div>
+
+
+
+  <h2>Products List</h2>
+  <div class="cards-grid">
+    <div class="card" *ngFor="let product of products">
+      <div class="avatar" *ngIf="!product.photo">{{ getProductInitial(product.name) }}</div>
+      <img *ngIf="product.photo"
+           [src]="'assets/images/' + product.photo"
+           [alt]="product.name"
+           class="avatar">
+      <div class="card-name">{{ product.name }}</div>
+      <div class="card-detail">{{ product.description | slice:0:30 }}{{ product.description.length > 30 ? '...' : '' }}</div>
+      <div class="price">{{ product.price | currency:'PHP':'symbol':'1.2-2' }}</div>
+    </div>
+  </div>
+
+
+</div>
+
+<router-outlet></router-outlet>
