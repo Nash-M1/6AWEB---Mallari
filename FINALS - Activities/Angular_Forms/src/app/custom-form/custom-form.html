@@ -1,0 +1,73 @@
+<div class="card">
+  <h2>📋 Job Application Form</h2>
+  <p class="subtitle">Fill out the form below to apply</p>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <label>Full Name</label>
+    <input class="input-box" placeholder="Enter full name"
+      formControlName="fullname">
+    <small class="error" *ngIf="isInvalid('fullname')">
+      Full name is required (min 3 characters)
+    </small>
+
+    <label>Email</label>
+    <input class="input-box" type="email" placeholder="Enter email"
+      formControlName="email">
+    <small class="error" *ngIf="isInvalid('email')">
+      Enter a valid email address
+    </small>
+
+    <label>Phone Number</label>
+    <input class="input-box" placeholder="Enter 11-digit phone number"
+      formControlName="phone">
+    <small class="error" *ngIf="isInvalid('phone')">
+      Enter a valid 11-digit phone number
+    </small>
+
+    <label>Department</label>
+    <select class="input-box" formControlName="department">
+  <option value="" disabled>Select department</option>
+  <option *ngFor="let d of departments">{{ d }}</option>
+</select>
+    <small class="error" *ngIf="isInvalid('department')">
+      Please select a department
+    </small>
+
+    <label>Position Applied For</label>
+    <input class="input-box" placeholder="Enter position"
+      formControlName="position">
+    <small class="error" *ngIf="isInvalid('position')">
+      Position is required
+    </small>
+
+    <label>Years of Experience</label>
+    <input class="input-box" type="number" placeholder="Enter years of experience"
+      formControlName="experience">
+    <small class="error" *ngIf="isInvalid('experience')">
+      Please enter valid years (0-50)
+    </small>
+
+    <label>Cover Letter / Message</label>
+    <textarea class="input-box" formControlName="message"
+      placeholder="Tell us about yourself..." rows="4"></textarea>
+    <small class="error" *ngIf="isInvalid('message')">
+      Message is required
+    </small>
+
+    <button class="btn" type="submit"
+      [disabled]="form.invalid">Submit Application</button>
+  </form>
+
+  <div class="success" *ngIf="submitted">
+  <p>✅ Application Submitted!</p>
+  <p>Name: {{ form.value.fullname }}</p>
+  <p>Email: {{ form.value.email }}</p>
+  <p>Phone: {{ form.value.phone }}</p>
+  <p>Department: {{ form.value.department }}</p>
+  <p>Position: {{ form.value.position }}</p>
+  <p>Experience: {{ form.value.experience }} years</p>
+  <p>Message: {{ form.value.message }}</p>
+  <button class="btn" (click)="submitted = false">Submit Another</button>
+</div>
+</div>

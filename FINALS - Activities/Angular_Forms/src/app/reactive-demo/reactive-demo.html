@@ -1,0 +1,65 @@
+<div class="card">
+  <h2>Reactive Form</h2>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <input class="input-box" placeholder="Username"
+      formControlName="username">
+    <small class="error" *ngIf="isInvalid('username')">
+      Username: 4-12 chars (letters/numbers/_)
+    </small>
+
+    <input class="input-box" type="email" placeholder="Email"
+      formControlName="email">
+    <small class="error" *ngIf="isInvalid('email')">
+      Enter a valid email
+    </small>
+
+    <input class="input-box" type="password" placeholder="Password"
+      formControlName="password">
+    <small class="error" *ngIf="isInvalid('password')">
+      Password: 8+ with upper, lower, number
+    </small>
+
+    <select class="input-box" formControlName="role">
+  <option *ngFor="let r of roles">{{ r }}</option>
+  </select>
+
+    <!-- 3 Additional Fields for Activity 2 -->
+    <div class="radio-group">
+      <label>Gender:</label>
+      <label><input type="radio" formControlName="gender"
+        value="Male"> Male</label>
+      <label><input type="radio" formControlName="gender"
+        value="Female"> Female</label>
+    </div>
+    <small class="error" *ngIf="isInvalid('gender')">
+      Please select a gender
+    </small>
+
+    <div class="radio-group">
+      <label>Status:</label>
+      <label><input type="radio" formControlName="status"
+        value="Permanent"> Permanent</label>
+      <label><input type="radio" formControlName="status"
+        value="Probationary"> Probationary</label>
+    </div>
+    <small class="error" *ngIf="isInvalid('status')">
+      Please select a status
+    </small>
+
+    <textarea class="input-box" formControlName="comments"
+      placeholder="Comments" rows="3"></textarea>
+
+    <button class="btn" type="submit"
+      [disabled]="form.invalid">Submit</button>
+  </form>
+
+  <div class="success" *ngIf="form.valid && submitted">
+    <p>✅ Form Submitted!</p>
+    <p>Username: {{ form.value.username }}</p>
+    <p>Email: {{ form.value.email }}</p>
+    <p>Role: {{ form.value.role }}</p>
+    <p>Gender: {{ form.value.gender }}</p>
+    <p>Status: {{ form.value.status }}</p>
+  </div>
+</div>
