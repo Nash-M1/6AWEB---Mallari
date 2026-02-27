@@ -1,0 +1,144 @@
+<div class="page-wrapper" [class.dark-mode]="isDarkMode">
+  <!-- Dark/Light Toggle -->
+  <div class="toggle-bar">
+    <mat-icon>light_mode</mat-icon>
+    <mat-slide-toggle (change)="toggleDarkMode()">Dark Mode</mat-slide-toggle>
+    <mat-icon>dark_mode</mat-icon>
+  </div>
+
+  <h1>Event Registration</h1>
+  <p class="subtitle">Join us at the biggest event of the year!</p>
+
+  <!-- Event Info Chips -->
+  <div class="chips-row">
+    <mat-chip-set>
+      <mat-chip> Feb 27, 2025</mat-chip>
+      <mat-chip> SM Mall City Clark</mat-chip>
+      <mat-chip> Free Entry</mat-chip>
+    </mat-chip-set>
+  </div>
+
+  <mat-card class="form-card">
+    <mat-card-content>
+      <form [formGroup]="formData">
+
+        <!-- Full Name -->
+        <mat-form-field appearance="outline">
+          <mat-label>Full Name</mat-label>
+          <input matInput formControlName="fullName" placeholder="Nash Mallari">
+          <mat-icon matSuffix>person</mat-icon>
+          @if (formData.get('fullName')?.invalid && submitted) {
+            <mat-error>Full name is required</mat-error>
+          }
+        </mat-form-field>
+
+        <!-- Email -->
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" placeholder="knashpmallari1@gmail.com">
+          <mat-icon matSuffix>email</mat-icon>
+          @if (formData.get('email')?.invalid && submitted) {
+            <mat-error>Enter a valid email</mat-error>
+          }
+        </mat-form-field>
+
+        <!-- Password -->
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" formControlName="password">
+          <mat-icon matSuffix>lock</mat-icon>
+          @if (formData.get('password')?.invalid && submitted) {
+            <mat-error>Must start with a letter, alphanumeric, min 8 characters</mat-error>
+          }
+        </mat-form-field>
+
+        <!-- Birth Date -->
+        <mat-form-field appearance="outline">
+          <mat-label>Date of Birth</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="birthDate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          @if (formData.get('birthDate')?.errors?.['tooYoung'] && submitted) {
+            <mat-error>You must be born in 2006 or earlier</mat-error>
+          }
+          @if (formData.get('birthDate')?.errors?.['required'] && submitted) {
+            <mat-error>Birth date is required</mat-error>
+          }
+        </mat-form-field>
+
+        <!-- Phone -->
+        <mat-form-field appearance="outline">
+          <mat-label>Phone Number</mat-label>
+          <input matInput formControlName="phone" placeholder="09XXXXXXXXX">
+          <mat-icon matSuffix>phone</mat-icon>
+          @if (formData.get('phone')?.invalid && submitted) {
+            <mat-error>Phone number is required</mat-error>
+          }
+        </mat-form-field>
+
+        <!-- Event Category -->
+        <mat-form-field appearance="outline">
+          <mat-label>Event Category</mat-label>
+          <mat-select formControlName="eventCategory">
+            <mat-option value="music">🎵 Music Festival</mat-option>
+            <mat-option value="tech">💻 Tech Summit</mat-option>
+            <mat-option value="sports">⚽ Sports Fest</mat-option>
+            <mat-option value="food">🍕 Food Expo</mat-option>
+            <mat-option value="arts">🎨 Arts & Culture</mat-option>
+          </mat-select>
+          @if (formData.get('eventCategory')?.invalid && submitted) {
+            <mat-error>Please select an event category</mat-error>
+          }
+        </mat-form-field>
+
+        <!-- T-Shirt Size -->
+        <div class="radio-group">
+          <label class="radio-label">T-Shirt Size</label>
+          <mat-radio-group formControlName="tshirtSize" class="radio-row">
+            <mat-radio-button value="S">S</mat-radio-button>
+            <mat-radio-button value="M">M</mat-radio-button>
+            <mat-radio-button value="L">L</mat-radio-button>
+            <mat-radio-button value="XL">XL</mat-radio-button>
+          </mat-radio-group>
+        </div>
+
+        <!-- Agree to Terms -->
+        <mat-checkbox formControlName="agreeToTerms">
+          I agree to the Terms and Conditions
+        </mat-checkbox>
+        @if (formData.get('agreeToTerms')?.invalid && submitted) {
+          <p class="terms-error">You must agree to the terms</p>
+        }
+
+        <!-- Submit Button -->
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="onClickSubmit()"
+          matTooltip="Click to register for the event">
+          <mat-icon>send</mat-icon> Register Now
+        </button>
+
+      </form>
+
+      <!-- Progress Bar -->
+      @if (isSubmitting) {
+        <mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>
+      }
+
+      <!-- Submitted Info -->
+      @if (submitted && formData.valid) {
+        <div class="submitted-info">
+          <h2>Registration Summary</h2>
+          <p><strong>Name:</strong> {{ formData.get('fullName')?.value }}</p>
+          <p><strong>Email:</strong> {{ formData.get('email')?.value }}</p>
+          <p><strong>Birth Date:</strong> {{ formData.get('birthDate')?.value | date }}</p>
+          <p><strong>Phone:</strong> {{ formData.get('phone')?.value }}</p>
+          <p><strong>Event:</strong> {{ formData.get('eventCategory')?.value }}</p>
+          <p><strong>T-Shirt Size:</strong> {{ formData.get('tshirtSize')?.value }}</p>
+        </div>
+      }
+
+    </mat-card-content>
+  </mat-card>
+</div>
