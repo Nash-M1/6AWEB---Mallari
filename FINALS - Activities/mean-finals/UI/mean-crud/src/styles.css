@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Barlow:wght@400;500&display=swap');
+
+body {
+  font-family: 'Barlow', sans-serif;
+  background: #0a0a0f;
+  color: #e2e8f0;
+  min-height: 100vh;
+}
+
+/* BACKGROUND GLOW EFFECT */
+body::before {
+  content: '';
+  position: fixed;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 500px;
+  background: radial-gradient(ellipse, rgba(0, 120, 255, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+/* TITLE */
+h2 {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 38px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  color: #ffffff !important;
+  text-shadow: 0 0 40px rgba(0, 120, 255, 0.6), 0 0 80px rgba(0, 120, 255, 0.2) !important;
+}
+
+/* FORM CARD */
+.card.p-4.mb-4.shadow-sm {
+  background: rgba(255,255,255,0.03) !important;
+  border: 1px solid rgba(0, 120, 255, 0.25) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 0 40px rgba(0, 120, 255, 0.08), inset 0 1px 0 rgba(255,255,255,0.05) !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+/* INPUTS */
+.form-control {
+  background: rgba(255,255,255,0.05) !important;
+  border: 1px solid rgba(255,255,255,0.1) !important;
+  border-radius: 8px !important;
+  font-family: 'Barlow', sans-serif !important;
+  color: #e2e8f0 !important;
+  font-size: 14px !important;
+}
+
+.form-control::placeholder {
+  color: rgba(255,255,255,0.25) !important;
+}
+
+.form-control:focus {
+  background: rgba(0, 120, 255, 0.08) !important;
+  border-color: #0078ff !important;
+  box-shadow: 0 0 0 3px rgba(0, 120, 255, 0.2), 0 0 20px rgba(0, 120, 255, 0.15) !important;
+  color: #ffffff !important;
+}
+
+/* ADD BUTTON */
+.btn-primary {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.12em !important;
+  text-transform: uppercase !important;
+  background: linear-gradient(135deg, #0078ff, #0050cc) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  box-shadow: 0 0 20px rgba(0, 120, 255, 0.4), 0 4px 15px rgba(0,0,0,0.3) !important;
+  color: #ffffff !important;
+  transition: all 0.2s !important;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #0090ff, #0060dd) !important;
+  box-shadow: 0 0 30px rgba(0, 120, 255, 0.6), 0 4px 20px rgba(0,0,0,0.4) !important;
+  transform: translateY(-1px) !important;
+  color: #ffffff !important;
+}
+
+/* BOOK CARDS */
+.card.mb-3.shadow-sm {
+  background: rgba(255,255,255,0.03) !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3) !important;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s !important;
+}
+
+.card.mb-3.shadow-sm:hover {
+  border-color: rgba(0, 120, 255, 0.4) !important;
+  box-shadow: 0 0 24px rgba(0, 120, 255, 0.15), 0 8px 32px rgba(0,0,0,0.4) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* CARD TEXT */
+.card-title {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  color: #ffffff !important;
+}
+
+.card-body p.text-muted {
+  color: rgba(255,255,255,0.4) !important;
+  font-size: 13px !important;
+}
+
+/* DELETE BUTTON */
+.btn-danger {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  background: rgba(239, 68, 68, 0.1) !important;
+  color: #f87171 !important;
+  border: 1px solid rgba(239, 68, 68, 0.3) !important;
+  border-radius: 8px !important;
+  transition: all 0.2s !important;
+}
+
+.btn-danger:hover {
+  background: #ef4444 !important;
+  color: #ffffff !important;
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 16px rgba(239, 68, 68, 0.4) !important;
+}
+
+/* EMPTY STATE */
+p.text-center.text-muted {
+  color: rgba(255,255,255,0.25) !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  font-size: 14px !important;
+}
